@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class Reserva{
+public class Reserva {
 	private Integer codigo;
 	private LocalDate dtInicio;
 	private LocalDate dtFim;
@@ -43,5 +43,5 @@ public class Reserva{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
 }

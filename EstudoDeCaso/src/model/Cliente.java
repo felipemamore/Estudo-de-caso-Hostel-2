@@ -15,7 +15,6 @@ public class Cliente extends Pessoa{
 			String cidadeResid, Integer cpf, String email, 
 			Integer telefone, Integer qtdeOcupacoes) {
 		super.setNome(nome);
-		super.setRg(rg);
 		super.setDtNasc(dtNasc);
 		super.setCidadeResid(cidadeResid);
 		this.cpf=cpf;
@@ -47,7 +46,5 @@ public class Cliente extends Pessoa{
 	public void setQtdeOcupacoes(Integer qtdeOcupacoes) {
 		this.qtdeOcupacoes = qtdeOcupacoes;
 	}
-	
-	
 
 }

@@ -3,7 +3,6 @@ package model;
 import java.time.LocalDate;
 
 public abstract class Pessoa {
-	
 	private String nome;
 	private Integer rg;
 	private LocalDate dtNasc;
@@ -34,7 +33,6 @@ public abstract class Pessoa {
 	public void setCidadeResid(String cidadeResid) {
 		this.cidadeResid = cidadeResid;
 	}
-	
 	
 
 }
