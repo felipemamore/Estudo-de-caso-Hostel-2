@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 
 public class Cliente extends Pessoa{
-	private Integer cpf;
+	private Long cpf;
 	private String email;
 	private Integer telefone;
 	private Integer qtdeOcupacoes;
@@ -12,7 +12,7 @@ public class Cliente extends Pessoa{
 		
 	}
 	public Cliente(String nome, Integer rg, LocalDate dtNasc,
-			String cidadeResid, Integer cpf, String email, 
+			String cidadeResid, Long cpf, String email, 
 			Integer telefone, Integer qtdeOcupacoes) {
 		super.setNome(nome);
 		super.setDtNasc(dtNasc);
@@ -22,10 +22,10 @@ public class Cliente extends Pessoa{
 		this.telefone=telefone;
 		this.qtdeOcupacoes=qtdeOcupacoes;
 	}
-	public Integer getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
-	public void setCpf(Integer cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 	public String getEmail() {
