@@ -46,5 +46,15 @@ public class Cliente extends Pessoa{
 	public void setQtdeOcupacoes(Integer qtdeOcupacoes) {
 		this.qtdeOcupacoes = qtdeOcupacoes;
 	}
+	
+	@Override
+	public String toString() {
+		
+		return "nome\n"+super.getNome()+"\n"+
+		"rg\n"+super.getRg()+"\n"+"dtNasc\n"+super.getDtNasc()+"\n"+
+		"cidadeResid\n"+super.getCidadeResid()+"\n"+"cpf\n"+this.cpf+
+		"\n"+"email\n"+this.getEmail()+"\n"+"telefone\n"+this.getTelefone()+
+		"\n"+"qtdeOcupacoes\n"+this.getQtdeOcupacoes();
+	}
 
 }

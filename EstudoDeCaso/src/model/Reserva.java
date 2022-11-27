@@ -1,28 +1,36 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public class Reserva {
-	private Integer codigo;
+	private Random codigo;
 	private LocalDate dtInicio;
 	private LocalDate dtFim;
 	private Cliente cliente;
+	private Funcionario funcionario;
 	
 	public Reserva() {
 		
 	}
-	public Reserva(Integer codigo, LocalDate dtInicio, LocalDate dtFim,
-			Cliente cliente
+	public Reserva(LocalDate dtInicio, LocalDate dtFim,
+			Cliente cliente, Funcionario funcionario
 			){
-		this.codigo=codigo;
 		this.dtInicio=dtInicio;
 		this.dtFim=dtFim;
 		this.cliente=cliente;
+		this.funcionario=funcionario;
 	}
-	public Integer getCodigo() {
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	public Random getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(Random codigo) {
 		this.codigo = codigo;
 	}
 	public LocalDate getDtInicio() {

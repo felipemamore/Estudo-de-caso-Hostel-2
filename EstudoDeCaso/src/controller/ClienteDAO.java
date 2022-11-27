@@ -60,7 +60,7 @@ public class ClienteDAO implements ICliente{
 	@Override
 	public ArrayList<Cliente> tabelaClientes() {
 		// TODO Auto-generated method stub
-		return null;
+		return tabelaClientes;
 	}
 	
 

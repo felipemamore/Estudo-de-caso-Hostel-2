@@ -1,6 +1,7 @@
 package view;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.ClienteDAO;
@@ -17,13 +18,15 @@ public class MainHostel {
 		Scanner leitura = new Scanner(System.in);
 		ClienteDAO clienteDAO = ClienteDAO.getInstancia();
 		while (opcao != 0) {
-			System.out.println("-----MENU-----");
-			System.out.println("0 - SAIR");
-			System.out.println("1 - INCLUIR");
-			System.out.println("2 - ATUALIZAR");
-			System.out.println("3 - REMOVER");
-			System.out.println("4 - LISTAR TODOS");
-			System.out.println("---------------");
+			System.out.println("+--------------------------------------+");
+			System.out.println("|                 MENU                 |");
+			System.out.println("+--------------------------------------+");
+			System.out.println("|0 - SAIR                              |");
+			System.out.println("|1 - INCLUIR			       |");
+			System.out.println("|2 - ATUALIZAR                         |");
+			System.out.println("|3 - REMOVER                           |");
+			System.out.println("|4 - LISTAR TODOS                      |");
+			System.out.println("|--------------------------------------|");
 			opcao = Integer.valueOf(leitura.nextLine());
 
 			switch (opcao) {
@@ -39,33 +42,69 @@ public class MainHostel {
 				} else {
 					System.out.println("Nome invalido !");
 				}
+				System.out.println("rg do cliente");
+				String rg = leitura.nextLine();
+				if (!rg.isEmpty()) {
+					cliente.setRg(Integer.valueOf(rg));
+				} else {
+					System.out.println("RG Invalido !");
+				}
+				cliente.setDtNasc(LocalDate.of(1997, 8, 1));
+				System.out.println("Cidade do cliente:");
+				String cidade = leitura.nextLine();
+				cliente.setCidadeResid(cidade);
 				System.out.println("CPF do cliente");
 				String cpf = leitura.nextLine();
-				if (!cpf.isEmpty()) {
+				if(!cpf.isEmpty()) {
 					cliente.setCpf(Long.valueOf(cpf));
 				} else {
-					System.out.println("CPF Invalido !");
+					System.out.println("Cpf invalido !");
 				}
+				System.out.println("Email do clinte");
+				String email = leitura.nextLine();
+				cliente.setEmail(email);
+				System.out.println("Telefone do cliente");
+				String telefone = leitura.nextLine();
+				cliente.setTelefone(Integer.valueOf(telefone));
+				System.out.println("Qtde de ocupacoes");
+				String qtde = leitura.nextLine();
+				cliente.setQtdeOcupacoes(Integer.valueOf(qtde));
 				clienteDAO.incluir(cliente);
+				break;
 				
-			}
+				
+				
+			case 2:
+				
+				System.out.println("CPF do cliente a ser alterado:");
+				Long cpfAltera = Long.valueOf(leitura.nextLine());
+				if(cliente.getCpf()==cpfAltera) {
+					
+				}
+				
+				
+				
+			
+				
+			
+			
+			case 3:
+				break;
+			case 4:
+				
+				ArrayList<Cliente> lista = clienteDAO.tabelaClientes();
+				for (Cliente c : lista) {
+					System.out.println(c.toString());
+				}
+					
+				}
+				
+				
 
 		}
-		Cliente cliente = new Cliente();
-		cliente.setNome("Novo cliente");
-		cliente.setRg(121334);
-		cliente.setDtNasc(LocalDate.of(1997, 1, 8));
-		cliente.setCidadeResid("Gaspar");
+		
 
-		Pessoa pessoa = (Cliente) cliente;
-
-		if (pessoa instanceof Cliente) {
-			System.out.println("Temos um cliente");
-
-		} else if (pessoa instanceof Funcionario) {
-			System.out.println("Temos um funcionario");
-
-		}
+		
 
 	}
 

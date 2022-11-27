@@ -1,26 +1,27 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public class Funcionario extends Pessoa {
-	private Integer idFuncionario;
+	private Random idFuncionario;
 	
 	public Funcionario() {
 			
 		}
 		public Funcionario(String nome, Integer rg, LocalDate dtNasc,
-				String cidadeResid, Integer idFuncionario) {
+				String cidadeResid) {
 			super.setNome(nome);
 			super.setRg(rg);
 			super.setDtNasc(dtNasc);
 			super.setCidadeResid(cidadeResid);
-			this.idFuncionario=idFuncionario;
+			
 
 		}
-		public Integer getIdFuncionario() {
+		public Random getIdFuncionario() {
 			return idFuncionario;
 		}
-		public void setIdFuncionario(Integer idFuncionario) {
+		public void setIdFuncionario(Random idFuncionario) {
 			this.idFuncionario = idFuncionario;
 		}
 
