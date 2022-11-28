@@ -55,7 +55,7 @@ public class MainHostel {
 				cliente.setCidadeResid(cidade);
 				System.out.println("CPF do cliente");
 				String cpf = leitura.nextLine();
-				if(!cpf.isEmpty()) {
+				if (!cpf.isEmpty()) {
 					cliente.setCpf(Long.valueOf(cpf));
 				} else {
 					System.out.println("Cpf invalido !");
@@ -71,40 +71,49 @@ public class MainHostel {
 				cliente.setQtdeOcupacoes(Integer.valueOf(qtde));
 				clienteDAO.incluir(cliente);
 				break;
-				
-				
-				
+
 			case 2:
 				
 				System.out.println("CPF do cliente a ser alterado:");
 				Long cpfAltera = Long.valueOf(leitura.nextLine());
-				if(cliente.getCpf()==cpfAltera) {
-					
+				
+				for(Cliente c: ClienteDAO.getInstancia().tabelaClientes()) {
+					if (c.getCpf()== cpfAltera) {
+						ClienteDAO.getInstancia().tabelaClientes();
+						ClienteDAO.getInstancia().atualizar(c, cpfAltera);
+						System.out.println("Altere o cliente:");
+						String nomeCliente = leitura.nextLine();
+						c.setNome(nomeCliente);
+
+					}
 				}
+
 				
-				
-				
-			
-				
-			
-			
+
 			case 3:
+				System.out.println("CPF do cliente a ser excluido:");
+				Long cpfExclui = Long.valueOf(leitura.nextLine());
+				
+				for(Cliente c: ClienteDAO.getInstancia().tabelaClientes()) {
+					if(c.getCpf() == cpfExclui) {
+						ClienteDAO.getInstancia().remover(c, cpfExclui);
+						System.out.println("Cliente excluido");
+						break;
+					}else {
+						System.out.println("CPF invalido !");
+					}
+				}
 				break;
 			case 4:
-				
-				ArrayList<Cliente> lista = clienteDAO.tabelaClientes();
+
+				ArrayList<Cliente> lista = ClienteDAO.getInstancia().tabelaClientes();
 				for (Cliente c : lista) {
 					System.out.println(c.toString());
 				}
-					
-				}
-				
-				
+
+			}
 
 		}
-		
-
-		
 
 	}
 
