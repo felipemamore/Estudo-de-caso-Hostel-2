@@ -1,13 +1,12 @@
 package view;
 
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.ClienteDAO;
 import model.Cliente;
-import model.Funcionario;
-import model.Pessoa;
 
 public class MainHostel {
 
@@ -17,6 +16,7 @@ public class MainHostel {
 		Integer opcao = Integer.MAX_VALUE;
 		Scanner leitura = new Scanner(System.in);
 		ClienteDAO clienteDAO = ClienteDAO.getInstancia();
+
 		while (opcao != 0) {
 			System.out.println("+--------------------------------------+");
 			System.out.println("|                 MENU                 |");
@@ -65,7 +65,7 @@ public class MainHostel {
 				cliente.setEmail(email);
 				System.out.println("Telefone do cliente");
 				String telefone = leitura.nextLine();
-				cliente.setTelefone(Integer.valueOf(telefone));
+				cliente.setTelefone(Long.valueOf(telefone));
 				System.out.println("Qtde de ocupacoes");
 				String qtde = leitura.nextLine();
 				cliente.setQtdeOcupacoes(Integer.valueOf(qtde));
@@ -73,36 +73,43 @@ public class MainHostel {
 				break;
 
 			case 2:
-				
-				System.out.println("CPF do cliente a ser alterado:");
+
+				System.out.println("CPF do cliente a ser alterado: ");
 				Long cpfAltera = Long.valueOf(leitura.nextLine());
-				
-				for(Cliente c: ClienteDAO.getInstancia().tabelaClientes()) {
-					if (c.getCpf()== cpfAltera) {
-						ClienteDAO.getInstancia().tabelaClientes();
-						ClienteDAO.getInstancia().atualizar(c, cpfAltera);
+
+				for (Cliente c : ClienteDAO.getInstancia().tabelaClientes()) {
+					boolean cpfPatch = c.getCpf() == Long.valueOf(cpfAltera);
+					if (cpfPatch) {
+
 						System.out.println("Altere o cliente:");
 						String nomeCliente = leitura.nextLine();
 						c.setNome(nomeCliente);
+						ClienteDAO.getInstancia().atualizar(c, cpfAltera);
+						ClienteDAO.getInstancia().tabelaClientes();
 
+					} else {
+						System.out.println("CPF invalido!! ");
 					}
-				}
 
-				
+				}
+				break;
 
 			case 3:
+
 				System.out.println("CPF do cliente a ser excluido:");
 				Long cpfExclui = Long.valueOf(leitura.nextLine());
-				
-				for(Cliente c: ClienteDAO.getInstancia().tabelaClientes()) {
-					if(c.getCpf() == cpfExclui) {
+				for (Cliente c : ClienteDAO.getInstancia().tabelaClientes()) {
+					boolean cpfEquals = c.getCpf() == cpfExclui;
+					if (cpfEquals) {
 						ClienteDAO.getInstancia().remover(c, cpfExclui);
-						System.out.println("Cliente excluido");
+						System.out.println("Cliente excluido!!");
 						break;
-					}else {
-						System.out.println("CPF invalido !");
+					} else {
+						System.out.println("CPF invalido!");
 					}
+
 				}
+
 				break;
 			case 4:
 

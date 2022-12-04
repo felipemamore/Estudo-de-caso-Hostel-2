@@ -9,8 +9,9 @@ public class Funcionario extends Pessoa {
 	public Funcionario() {
 			
 		}
-		public Funcionario(String nome, Integer rg, LocalDate dtNasc,
+		public Funcionario(Random idFuncionario, String nome, Integer rg, LocalDate dtNasc,
 				String cidadeResid) {
+			this.idFuncionario=idFuncionario;
 			super.setNome(nome);
 			super.setRg(rg);
 			super.setDtNasc(dtNasc);

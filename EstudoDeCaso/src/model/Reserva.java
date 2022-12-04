@@ -13,9 +13,10 @@ public class Reserva {
 	public Reserva() {
 		
 	}
-	public Reserva(LocalDate dtInicio, LocalDate dtFim,
+	public Reserva(Random codigo, LocalDate dtInicio, LocalDate dtFim,
 			Cliente cliente, Funcionario funcionario
 			){
+		this.codigo=codigo;
 		this.dtInicio=dtInicio;
 		this.dtFim=dtFim;
 		this.cliente=cliente;
@@ -51,5 +52,7 @@ public class Reserva {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	
 
 }

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Cliente extends Pessoa{
 	private Long cpf;
 	private String email;
-	private Integer telefone;
+	private Long telefone;
 	private Integer qtdeOcupacoes;
 	
 	public Cliente() {
@@ -13,7 +13,7 @@ public class Cliente extends Pessoa{
 	}
 	public Cliente(String nome, Integer rg, LocalDate dtNasc,
 			String cidadeResid, Long cpf, String email, 
-			Integer telefone, Integer qtdeOcupacoes) {
+			Long telefone, Integer qtdeOcupacoes) {
 		super.setNome(nome);
 		super.setDtNasc(dtNasc);
 		super.setCidadeResid(cidadeResid);
@@ -34,10 +34,10 @@ public class Cliente extends Pessoa{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getTelefone() {
+	public Long getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(Integer telefone) {
+	public void setTelefone(Long telefone) {
 		this.telefone = telefone;
 	}
 	public Integer getQtdeOcupacoes() {
@@ -50,11 +50,11 @@ public class Cliente extends Pessoa{
 	@Override
 	public String toString() {
 		
-		return "nome\n"+super.getNome()+"\n"+
-		"rg\n"+super.getRg()+"\n"+"dtNasc\n"+super.getDtNasc()+"\n"+
-		"cidadeResid\n"+super.getCidadeResid()+"\n"+"cpf\n"+this.cpf+
-		"\n"+"email\n"+this.getEmail()+"\n"+"telefone\n"+this.getTelefone()+
-		"\n"+"qtdeOcupacoes\n"+this.getQtdeOcupacoes();
+		return "Nome:\n"+super.getNome()+"\n"+
+		"RG:\n"+super.getRg()+"\n"+"Data Nascimento:\n"+super.getDtNasc()+"\n"+
+		"Cidade Residencia:\n"+super.getCidadeResid()+"\n"+"CPF:\n"+this.cpf+
+		"\n"+"Email:\n"+this.getEmail()+"\n"+"Telefone:\n"+this.getTelefone()+
+		"\n"+"Quantidade Ocupaçoes\n"+this.getQtdeOcupacoes();
 	}
 
 }
